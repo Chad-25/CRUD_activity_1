@@ -1,3 +1,5 @@
+-- Activity 1
+
 CREATE TABLE students (
     id integer PRIMARY KEY,
     first_name character varying(255) NOT NULL,
@@ -37,3 +39,19 @@ SELECT * FROM students;
 
 DELETE FROM students
 WHERE id = 6;
+
+-- Activity 2
+-- use your previous table students   --ok
+-- display the count of all students   --ok
+-- select all students with location is manila  -- ok
+-- display the average age of all students --ok
+-- display all the students by age in descending order
+
+SELECT * FROM students;
+SELECT  COUNT(id) AS "Number Of Students" FROM students;
+SELECT * FROM students 
+	WHERE location = 'Manila';
+SELECT ROUND(AVG(age), 2) AS "Students Average Age" FROM students;
+SELECT age, first_name, middle_name, last_name, location, id FROM students
+	GROUP BY students.id
+	ORDER BY age DESC;
